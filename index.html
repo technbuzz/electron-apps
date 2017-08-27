@@ -8,7 +8,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1> Hello World <h1>
+  <form id="form">
+    <label for="new-url">New Bookmark Url</label>
+    <input type="url" name="new-url" id="new-url">
+    <br>
+    <input type="submit" id="submit-btn" value="Add Url">
+  </form>
+
+
+  <section class="links"></section>
+
+  <template id="link-template">
+    <article class="link">
+      <span>Hurrah</span>
+      <h3 class="link--title"></h3>
+      <p><a href="" class="link--url"></a></p>
+    </article>
+  </template>
 
   <script>
     require('./renderer.js')
