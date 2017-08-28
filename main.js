@@ -18,5 +18,5 @@ app.on('ready',() => {
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
-  require('devtron').install();
+  // require('devtron').install();
 })

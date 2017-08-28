@@ -8,7 +8,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1> Hello World <h1>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" id="new-file">New File</li>
+        <li><a href="#" id="open-file">Open File</li>
+        <li><a href="#" id="save-file" disabled>Save File</li>
+        <li><a href="#" disabled>Revert</li>
+        <li><a href="#">Save Html</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="write">
+      <textarea name="" id="html"></textarea>
+    </section>
+    <section class="view" id="#view"></section>
+  </main>
 
   <script>
     require('./renderer.js')
