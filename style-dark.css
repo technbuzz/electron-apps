@@ -1,4 +1,17 @@
+:root{
+  --accent-color: #000;
+  --border-color: #232323;
+}
+
 body{
-  background-color: #000;
+  background-color: var(--accent-color);
   color: #fff;
+}
+
+article{
+  padding: 0 10px;
+  margin: 10px auto;
+  border-radius: 4px;
+  background: var(--border-color);
+  border: 2px solid;
 }
