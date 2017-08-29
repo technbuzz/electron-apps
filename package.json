@@ -10,5 +10,9 @@
   "license": "MIT",
   "devDependencies": {
     "devtron": "^1.4.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "marked": "^0.3.6"
   }
 }

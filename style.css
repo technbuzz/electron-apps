@@ -1,6 +1,7 @@
 html,body{
   margin: 0;
   padding: 0;
+  font: menu;
 }
 
 header{
@@ -39,6 +40,6 @@ section.write, section.view{
 }
 
 section.write textarea{
-  width: 100%;
+  width: 97%;
   height: 100%;
 }
