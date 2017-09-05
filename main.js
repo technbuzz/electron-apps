@@ -1,7 +1,28 @@
 var { app, BrowserWindow, dialog } = require("electron");
 const fs = require('fs');
 
-let mainWindow = null
+let mainWindow = null;
+
+const getFileFromUserSelection = exports.getFileFromUserSelection = () => {
+  const files = dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [
+      {name: 'Text Files', extensions: ['txt', 'text']},
+      {name: 'Markdown Files', extensions: ['md', 'markdown']}
+    ]
+  });
+
+  if(!files) return;
+  return files[0];
+}
+
+const openFile = exports.openFile = (filePath) => {
+  const file = filePath || getFileFromUserSelection();
+  const content = fs.readFileSync(file).toString();
+  
+  mainWindow.webContents.send('file-opened', file, content);
+}
+
 
 app.on('ready',() => {
   mainWindow = new BrowserWindow({
@@ -20,23 +41,7 @@ app.on('ready',() => {
   });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
-  // require('devtron').install();
+  require('devtron').install();
 });
 
-const getFileFromUserSelection = exports.getFileFromUserSelection = () => {
-  const files = dialog.showOpenDialog({
-    properties: ['openFile'],
-    filters: [
-      {name: 'Text Files', extensions: ['txt', 'text']},
-      {name: 'Markdown Files', extensions: ['md', 'markdown']}
-    ]
-  });
 
-  if(!files) return;
-  const file = files[0];
-  const content = fs.readFileSync(file).toString();
-
-  mainWindow.webContents.send('file-opened', file, content);
-
-  console.log(content);
-}
